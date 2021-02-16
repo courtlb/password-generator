@@ -48,14 +48,36 @@ function generatePassword() {
   //this is where all the logic will be
   var length = passwordLength();
   var types = characterTypes();
-  var uppercaseLettersArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  var password = "";
   var lowercaseLettersArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  var uppercaseLettersArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   var numbersArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   var specialCharactersArray = ['!', '#', '$', '%', '&', '(', ')', '*', '+', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@'];
-    //lots of if else statements
-    //logic to loop through as many times as password length (random character each spot) (array)
-    //return randomly generated password
-}
+    
+  var passwordGenArray = [];
+
+  if (types.lower === true) {
+      passwordGenArray = passwordGenArray.concat(lowercaseLettersArray);
+  };
+  if (types.upper === true) {
+    passwordGenArray = passwordGenArray.concat(uppercaseLettersArray);
+  };
+  if (types.number === true) {
+    passwordGenArray = passwordGenArray.concat(numbersArray);
+  };
+  if (types.special === true) { 
+    passwordGenArray = passwordGenArray.concat(specialCharactersArray);
+  };
+
+  console.log(passwordGenArray);
+
+  for (i=0; i < length; i++) {
+    console.log(i);
+    password = password + passwordGenArray[Math.floor(Math.random()*passwordGenArray.length)];
+  };
+
+  return password;
+};
 
 // Write password to the #password input
 function writePassword() {
