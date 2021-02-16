@@ -31,11 +31,6 @@ function characterTypes() {
     characterTypes();
   }
 
-  console.log(lower);
-  console.log(upper);
-  console.log(number);
-  console.log(special);
-
   return types = {
     lower,
     upper,
@@ -69,10 +64,7 @@ function generatePassword() {
     passwordGenArray = passwordGenArray.concat(specialCharactersArray);
   };
 
-  console.log(passwordGenArray);
-
   for (i=0; i < length; i++) {
-    console.log(i);
     password = password + passwordGenArray[Math.floor(Math.random()*passwordGenArray.length)];
   };
 
